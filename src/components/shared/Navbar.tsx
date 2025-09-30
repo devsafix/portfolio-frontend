@@ -1,17 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { Logo } from "@/components/logo";
+import { Logo } from "@/assets/icon/logo";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import React from "react";
 import { cn } from "@/lib/utils";
 
 const menuItems = [
-  { name: "Features", href: "#link" },
-  { name: "Solution", href: "#link" },
-  { name: "Pricing", href: "#link" },
-  { name: "About", href: "#link" },
+  { name: "Home", href: "#banner" },
+  { name: "About", href: "#about" },
+  { name: "Skills", href: "#skills" },
+  { name: "Projects", href: "/projects" },
+  { name: "Blogs", href: "/blogs" },
 ];
 
 export const Navbar = () => {
@@ -59,7 +60,7 @@ export const Navbar = () => {
             </div>
 
             <div className="absolute inset-0 m-auto hidden size-fit lg:block">
-              <ul className="flex gap-8 text-sm">
+              <ul className="flex gap-8">
                 {menuItems.map((item, index) => (
                   <li key={index}>
                     <Link
@@ -95,7 +96,7 @@ export const Navbar = () => {
                   size="sm"
                   className={cn(isScrolled && "lg:hidden")}
                 >
-                  <Link href="#">
+                  <Link href="/login">
                     <span>Login</span>
                   </Link>
                 </Button>
@@ -104,8 +105,8 @@ export const Navbar = () => {
                   size="sm"
                   className={cn(isScrolled && "lg:hidden")}
                 >
-                  <Link href="#">
-                    <span>Sign Up</span>
+                  <Link href="#contact">
+                    <span>Contact Me</span>
                   </Link>
                 </Button>
                 <Button
@@ -113,8 +114,8 @@ export const Navbar = () => {
                   size="sm"
                   className={cn(isScrolled ? "lg:inline-flex" : "hidden")}
                 >
-                  <Link href="#">
-                    <span>Get Started</span>
+                  <Link target="_blank" href={"https://wa.me/8801709190412"}>
+                    <span>Message Now</span>
                   </Link>
                 </Button>
               </div>
