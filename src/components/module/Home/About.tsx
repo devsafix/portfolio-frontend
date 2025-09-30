@@ -43,20 +43,20 @@ const itemVariants = {
 
 export default function About() {
   return (
-    <div className="py-12 md:py-16">
+    <div className="py-12 md:py-16" id="about">
       <ComponentHeader
         title="About My Journey"
         subTitle="Discover my path as a passionate full-stack developer, constantly evolving with modern technologies and exploring the intersection of development and AI automation."
       />
 
-      <div className="mt-16 max-w-6xl mx-auto px-4 grid grid-cols-1 items-start gap-12 lg:grid-cols-3 lg:gap-8">
+      <div className="mt-10 max-w-6xl mx-auto px-4 grid grid-cols-1 items-start gap-12 lg:grid-cols-3 lg:gap-8">
         {/* Left Side: Profile Card */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="sticky top-24 flex flex-col items-center gap-6 rounded-xl bg-card p-6 text-center shadow-md lg:col-span-1"
+          className="flex flex-col items-center gap-6 rounded-xl bg-card p-6 text-center shadow-md lg:col-span-1"
         >
           <div className="relative">
             <Image
