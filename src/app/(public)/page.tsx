@@ -1,10 +1,11 @@
-import HeroSection from "@/components/module/Home/hero-section";
+import About from "@/components/module/Home/About";
+import HeroSection from "@/components/module/Home/Hero";
 
 export default async function HomePage() {
   return (
     <div>
       <HeroSection />
-      <HeroSection />
+      <About />
     </div>
   );
 }

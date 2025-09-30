@@ -38,7 +38,7 @@ export default function HeroSection() {
     <>
       <main className="overflow-hidden [--color-primary-foreground:var(--color-white)] [--color-primary:var(--color-green-600)]">
         <section>
-          <div className="relative mx-auto max-w-6xl px-4 pb-20 pt-32 lg:pt-48">
+          <div className="relative mx-auto max-w-6xl px-4 pb-20 lg:pb-28 pt-32 lg:pt-48">
             <div className="relative z-10 mx-auto max-w-4xl text-center">
               <TextEffect
                 preset="fade-in-blur"
