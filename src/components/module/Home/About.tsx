@@ -4,6 +4,7 @@ import ComponentHeader from "@/components/shared/ComponentHeader";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 // Data for the timeline points on the right side
 const journeyPoints = [
@@ -43,7 +44,7 @@ const itemVariants = {
 
 export default function About() {
   return (
-    <div className="py-12 md:py-16" id="about">
+    <div className="py-10 md:py-16" id="about">
       <ComponentHeader
         title="About My Journey"
         subTitle="Discover my path as a passionate full-stack developer, constantly evolving with modern technologies and exploring the intersection of development and AI automation."
@@ -74,7 +75,9 @@ export default function About() {
             <p className="text-sm text-white/60">Dhaka, Bangladesh</p>
           </div>
 
-          <Button className="mt-4 w-full">Get In Touch</Button>
+          <Link href={"#contact"} className="w-full">
+            <Button className="mt-4 w-full">Get In Touch</Button>
+          </Link>
         </motion.div>
 
         {/* Right Side: Timeline */}
