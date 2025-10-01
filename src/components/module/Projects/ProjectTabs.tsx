@@ -7,10 +7,10 @@ import AllProjectsGrid from "./AllProjectsGrid";
 
 const projectTabs = [
   { label: "All", value: "all" },
-  { label: "Full Stack", value: "Full-Stack" },
-  { label: "Next.js", value: "Next.js" },
-  { label: "Frontend", value: "Frontend" },
-  { label: "Backend", value: "Backend" },
+  { label: "Full Stack", value: "full-stack" },
+  { label: "Next.js", value: "next-js" },
+  { label: "Frontend", value: "frontend" },
+  { label: "Backend", value: "backend" },
 ];
 
 export default function ProjectTabs({ projects }: { projects: TProject[] }) {
