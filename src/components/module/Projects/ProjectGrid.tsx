@@ -55,7 +55,6 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
         <motion.div
           key={project.id}
           variants={cardVariants as Variants}
-          whileHover={{ y: -8 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
           <Card className="group flex flex-col overflow-hidden transition-all duration-300 h-full">

@@ -12,3 +12,16 @@ export type TProject = {
   createdAt: string;
   updatedAt: string;
 };
+
+export type TBlog = {
+  id: string;
+  title: string;
+  slug: string;
+  content: string;
+  thumbnail?: string | null;
+  tags: string[];
+  metaTitle?: string | null;
+  metaDescription?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
