@@ -28,6 +28,7 @@ import {
   SiVercel,
   SiRender,
   SiRailway,
+  SiSupabase,
 } from "react-icons/si";
 import { TbApi, TbBrandOauth } from "react-icons/tb";
 import { FaGitAlt } from "react-icons/fa";
@@ -44,55 +45,46 @@ const skillsData = [
         icon: <SiHtml5 className="text-orange-500" />,
         description: "Web structure",
       },
-
       {
         name: "CSS",
         icon: <SiCss3 className="text-blue-500" />,
         description: "Styling webpages",
       },
-
       {
         name: "JavaScript",
         icon: <SiJavascript className="text-yellow-400" />,
         description: "Web interactivity",
       },
-
       {
         name: "TypeScript",
         icon: <SiTypescript className="text-blue-600" />,
         description: "Typed JavaScript",
       },
-
-      {
-        name: "React.js",
-        icon: <SiReact className="text-cyan-400" />,
-        description: "UI library",
-      },
-
-      {
-        name: "Next.js",
-        icon: <SiNextdotjs />,
-        description: "React framework",
-      },
-
       {
         name: "Tailwind CSS",
         icon: <SiTailwindcss className="text-teal-400" />,
         description: "Utility-first CSS",
       },
-
+      {
+        name: "React.js",
+        icon: <SiReact className="text-cyan-400" />,
+        description: "UI library",
+      },
+      {
+        name: "Next.js",
+        icon: <SiNextdotjs />,
+        description: "React framework",
+      },
       {
         name: "Redux Toolkit",
         icon: <SiRedux className="text-purple-500" />,
         description: "State management",
       },
-
       {
         name: "TanStack Query",
         icon: <SiReact className="text-rose-500" />,
         description: "Data fetching",
       },
-
       {
         name: "Axios",
         icon: <SiAxios className="text-purple-600" />,
@@ -111,32 +103,27 @@ const skillsData = [
 
         description: "JS runtime",
       },
-
       {
         name: "Express.js",
         icon: <SiExpress />,
         description: "Node.js framework",
       },
-
       {
         name: "REST APIs",
         icon: <TbApi className="text-green-400" />,
         description: "API architecture",
       },
-
       {
         name: "GraphQL",
         icon: <SiGraphql className="text-pink-500" />,
         description: "Query language",
       },
-
       {
         name: "JWT",
         icon: <SiJsonwebtokens className="text-purple-400" />,
 
         description: "Authentication",
       },
-
       {
         name: "OAuth",
         icon: <TbBrandOauth className="text-blue-400" />,
@@ -153,23 +140,24 @@ const skillsData = [
         icon: <SiMongodb className="text-green-600" />,
         description: "NoSQL database",
       },
-
       {
         name: "Mongoose",
         icon: <SiMongoose className="text-orange-700" />,
 
         description: "MongoDB ODM",
       },
-
       {
         name: "PostgreSQL",
         icon: <SiPostgresql className="text-blue-500" />,
 
         description: "SQL database",
       },
-
       { name: "Prisma ORM", icon: <SiPrisma />, description: "Next-gen ORM" },
-
+      {
+        name: "Supabase",
+        icon: <SiSupabase className="text-emerald-600" />,
+        description: "Postgres development platform",
+      },
       {
         name: "Redis",
         icon: <SiRedis className="text-red-600" />,
@@ -187,21 +175,17 @@ const skillsData = [
         icon: <SiDocker className="text-blue-500" />,
         description: "Containerization",
       },
-
       { name: "GitHub", icon: <SiGithub />, description: "Version control" },
-
       {
         name: "CI/CD",
         icon: <FaGitAlt className="text-orange-500" />,
         description: "Automation",
       },
-
       {
         name: "AWS",
         icon: <DiAws className="text-orange-400" />,
         description: "Cloud provider",
       },
-
       { name: "Vercel", icon: <SiVercel />, description: "Cloud platform" },
       { name: "Render", icon: <SiRender />, description: "Cloud platform" },
       { name: "Railway", icon: <SiRailway />, description: "Cloud platform" },
@@ -227,18 +211,19 @@ export default function Skills() {
         title="Skills & Expertise"
         subTitle="A comprehensive set of tools and technologies I use to build scalable, efficient, and user-friendly applications."
       />
-      <div className="mt-10 max-w-6xl mx-auto px-4">
+      <div className="mt-10 max-w-5xl mx-auto px-4">
         <Tabs defaultValue="Frontend" className="w-full">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <TabsList className="grid w-full grid-cols-2 md:grid-cols-4">
+            <TabsList className="gap-2 lg:gap-20 flex flex-wrap items-center bg-transparent w-full">
               {skillsData.map((categoryItem) => (
                 <TabsTrigger
                   key={categoryItem.category}
                   value={categoryItem.category}
+                  className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-full data-[state=active]:shadow-none text-white/70 hover:text-white/80"
                 >
                   {categoryItem.category}
                 </TabsTrigger>
@@ -251,7 +236,7 @@ export default function Skills() {
               key={categoryItem.category}
               value={categoryItem.category}
             >
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 mt-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 mt-7 md:mt-10">
                 {categoryItem.skills.map((skill, i) => (
                   <motion.div
                     key={skill.name}
