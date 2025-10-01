@@ -26,7 +26,7 @@ const itemVariants = {
 
 export default function Faq() {
   return (
-    <div className="py-10 md:py-16" id="faq">
+    <div className="py-10" id="faq">
       <ComponentHeader
         title="Frequently Asked Questions"
         subTitle="Have questions? I've got answers. Here are some of the things people most often ask me."

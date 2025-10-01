@@ -30,7 +30,7 @@ export default async function RecentBlogs() {
   const blogs = await getRecentBlogs();
 
   return (
-    <div className="py-10 md:py-16" id="blogs">
+    <div className="py-10" id="blogs">
       <ComponentHeader
         title="My Latest Blogs"
         subTitle="Exploring ideas, sharing knowledge, and documenting my journey through the world of technology and development."

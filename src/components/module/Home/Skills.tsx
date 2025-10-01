@@ -206,7 +206,7 @@ const cardVariants = {
 
 export default function Skills() {
   return (
-    <div className="py-10 md:py-16" id="skills">
+    <div className="py-10" id="skills">
       <ComponentHeader
         title="Skills & Expertise"
         subTitle="A comprehensive set of tools and technologies I use to build scalable, efficient, and user-friendly applications."

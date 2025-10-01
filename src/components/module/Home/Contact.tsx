@@ -80,7 +80,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="py-10 md:py-16" id="contact">
+    <div className="py-10" id="contact">
       <ComponentHeader
         title="Let's Build Something Amazing"
         subTitle="Ready to start a project or just want to connect? Reach out, and let's create something powerful together."

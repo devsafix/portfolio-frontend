@@ -32,7 +32,7 @@ export default async function BestProjects() {
   const projects = await getBestProjects();
 
   return (
-    <div className="py-10 md:py-16" id="projects">
+    <div className="py-10" id="projects">
       <ComponentHeader
         title="Featured Projects"
         subTitle="Check out some of my development projects, that I'm most proud of, showcasing my skills and creativity."

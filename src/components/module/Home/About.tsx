@@ -44,7 +44,7 @@ const itemVariants = {
 
 export default function About() {
   return (
-    <div className="py-10 md:py-16" id="about">
+    <div className="py-10" id="about">
       <ComponentHeader
         title="About My Journey"
         subTitle="Discover my path as a passionate full-stack developer, constantly evolving with modern technologies and exploring the intersection of development and AI automation."
