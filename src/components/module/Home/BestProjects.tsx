@@ -5,13 +5,16 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-async function getRecentProjects() {
+async function getBestProjects() {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/projects`, {
-      next: {
-        tags: ["projects"],
-      },
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_API}/projects?tag=top`,
+      {
+        next: {
+          tags: ["projects"],
+        },
+      }
+    );
 
     if (!res.ok) {
       throw new Error("Failed to fetch projects");
@@ -25,15 +28,14 @@ async function getRecentProjects() {
   }
 }
 
-export default async function RecentProjects() {
-  const projects = await getRecentProjects();
+export default async function BestProjects() {
+  const projects = await getBestProjects();
 
   return (
-    // The id="projects" allows for anchor linking to this section
     <div className="py-10 md:py-16" id="projects">
       <ComponentHeader
-        title="Recent Projects"
-        subTitle="A showcase of my passion for development, where each project tells a story of dedication and creativity."
+        title="Featured Projects"
+        subTitle="Check out some of my development projects, that I'm most proud of, showcasing my skills and creativity."
       />
       <div className="mt-10 max-w-6xl mx-auto px-4">
         {projects && projects?.length > 0 ? (
@@ -51,7 +53,8 @@ export default async function RecentProjects() {
         ) : (
           <div className="text-center text-muted-foreground">
             <p>
-              Could not load projects at this time. Please check back later.
+              Could not load featured projects at this time. Please check back
+              later.
             </p>
           </div>
         )}
