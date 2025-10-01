@@ -40,12 +40,18 @@ const cardVariants = {
 
 type ProjectGridProps = {
   projects: TProject[];
+  columns?: number;
 };
 
-export default function ProjectGrid({ projects }: ProjectGridProps) {
+export default function ProjectGrid({
+  projects,
+  columns = 2,
+}: ProjectGridProps) {
   return (
     <motion.div
-      className="grid grid-cols-1 md:grid-cols-2 gap-8"
+      className={`grid grid-cols-1 md:grid-cols-2 ${
+        columns === 3 ? "lg:grid-cols-3" : ""
+      } gap-8`}
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -114,7 +120,10 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
                   </Link>
                 </Button>
               )}
-              <Button asChild className="w-full col-span-3 md:col-span-1 md:col-start-4">
+              <Button
+                asChild
+                className="w-full col-span-3 md:col-span-1 md:col-start-4"
+              >
                 <Link href={`/projects/${project.id}`}>
                   Details <ArrowUpRight className="size-4" />
                 </Link>
