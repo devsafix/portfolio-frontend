@@ -211,7 +211,7 @@ export default function Skills() {
         title="Skills & Expertise"
         subTitle="A comprehensive set of tools and technologies I use to build scalable, efficient, and user-friendly applications."
       />
-      <div className="mt-10 max-w-5xl mx-auto px-4">
+      <div className="mt-10 max-w-6xl mx-auto px-4">
         <Tabs defaultValue="Frontend" className="w-full">
           <motion.div
             initial={{ opacity: 0 }}

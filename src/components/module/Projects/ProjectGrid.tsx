@@ -1,7 +1,7 @@
 "use client";
 
 import { TProject } from "@/types";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -54,11 +54,11 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
       {projects?.slice(0, 4)?.map((project) => (
         <motion.div
           key={project.id}
-          variants={cardVariants}
+          variants={cardVariants as Variants}
           whileHover={{ y: -8 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
-          <Card className="group flex flex-col overflow-hidden transition-all duration-300 hover:border-primary/60 h-full">
+          <Card className="group flex flex-col overflow-hidden transition-all duration-300 h-full">
             <CardHeader className="p-0">
               <div className="overflow-hidden">
                 <Image
@@ -74,7 +74,7 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
               <h3 className="text-2xl font-bold text-card-foreground mb-3 line-clamp-1">
                 {project.title}
               </h3>
-              <p className="text-muted-foreground text-sm line-clamp-2">
+              <p className="text-white/70 text-sm line-clamp-2">
                 {project.description}
               </p>
               <div className="mt-4 flex flex-wrap gap-2">
@@ -85,14 +85,14 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
                 ))}
               </div>
             </CardContent>
-            <CardFooter className="p-6 pt-3 grid grid-cols-2 md:grid-cols-4 gap-3">
+            <CardFooter className="p-6 pt-3 grid grid-cols-3 md:grid-cols-4 gap-3">
               <Button asChild variant="outline" className="w-full">
                 <Link
                   href={project.liveSite}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Globe className="mr-1 size-4" /> Live
+                  <Globe className="size-4" /> Live
                 </Link>
               </Button>
               <Button asChild variant="outline" className="w-full">
@@ -101,7 +101,7 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Github className="mr-1 size-4" /> Client
+                  <Github className="size-4" /> Client
                 </Link>
               </Button>
               {project.githubBackend && (
@@ -111,13 +111,13 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Server className="mr-1 size-4" /> Server
+                    <Server className="size-4" /> Server
                   </Link>
                 </Button>
               )}
-              <Button asChild className="w-full md:col-start-4">
+              <Button asChild className="w-full col-span-3 md:col-span-1 md:col-start-4">
                 <Link href={`/projects/${project.id}`}>
-                  Details <ArrowUpRight className="ml-1 size-4" />
+                  Details <ArrowUpRight className="size-4" />
                 </Link>
               </Button>
             </CardFooter>

@@ -104,7 +104,7 @@ export default function HeroSection() {
                     modules={[Autoplay, EffectCoverflow]}
                   >
                     <SwiperSlide className="px-2">
-                      <div className="bg-background rounded-(--radius) h-44 max-w-lg border p-9">
+                      <div className="bg-input/70 rounded-(--radius) h-44 max-w-lg border p-9">
                         <div className="mx-auto h-fit w-full">
                           <NetlifyLogo />
                         </div>
@@ -114,7 +114,7 @@ export default function HeroSection() {
                       </div>
                     </SwiperSlide>
                     <SwiperSlide className="px-2">
-                      <div className="bg-background rounded-(--radius) h-44 max-w-lg border p-9">
+                      <div className="bg-input/70 rounded-(--radius) h-44 max-w-lg border p-9">
                         <div className="mx-auto h-fit w-full">
                           <AstroLogo />
                         </div>
@@ -124,7 +124,7 @@ export default function HeroSection() {
                       </div>
                     </SwiperSlide>
                     <SwiperSlide className="px-2">
-                      <div className="bg-background rounded-(--radius) h-44 max-w-lg border p-9">
+                      <div className="bg-input/70 rounded-(--radius) h-44 max-w-lg border p-9">
                         <div className="mx-auto h-fit w-full">
                           <WorkOsLogo />
                         </div>
