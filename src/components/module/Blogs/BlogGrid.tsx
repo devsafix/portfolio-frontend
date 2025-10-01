@@ -47,12 +47,11 @@ export default function BlogGrid({ blogs }: BlogGridProps) {
         <motion.div
           key={blog.id}
           variants={cardVariants as Variants}
-          whileHover={{ y: -5 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
           {/* The entire card is a clickable link for better UX */}
           <Link href={`/blogs/${blog.slug}`} className="block h-full">
-            <Card className="group flex flex-col overflow-hidden h-full transition-all duration-300 hover:border-primary/60 hover:shadow-lg">
+            <Card className="group flex flex-col overflow-hidden h-full transition-all duration-300 hover:border-primary/60">
               <CardHeader className="p-0">
                 <div className="overflow-hidden">
                   <Image
@@ -65,7 +64,7 @@ export default function BlogGrid({ blogs }: BlogGridProps) {
                 </div>
               </CardHeader>
               <CardContent className="p-5 flex-grow">
-                <h3 className="text-xl font-bold text-card-foreground mb-2 line-clamp-1">
+                <h3 className="text-xl font-bold text-card-foreground mb-2 line-clamp-2">
                   {blog.title}
                 </h3>
                 <p className="text-muted-foreground text-sm line-clamp-3">
