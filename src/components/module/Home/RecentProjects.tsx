@@ -40,8 +40,8 @@ export default async function RecentProjects() {
           <>
             <ProjectGrid projects={projects.slice(0, 4)} />
 
-            <div className="mt-12 text-center">
-              <Button asChild>
+            <div className="mt-10 flex items-center justify-center">
+              <Button asChild className="px-20 py-5 w-44">
                 <Link href="/all-projects">
                   See All Projects <ArrowRight className="size-4" />
                 </Link>
