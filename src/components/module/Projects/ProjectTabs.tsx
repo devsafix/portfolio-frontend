@@ -44,7 +44,7 @@ export default function ProjectTabs({ projects }: { projects: TProject[] }) {
             <TabsTrigger
               key={tab.value}
               value={tab.value}
-              className="px-6 py-2 rounded-full text-sm font-medium data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md"
+              className="px-6 py-2 rounded-full text-sm font-medium data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md text-white/70 hover:text-white/80"
             >
               {tab.label}
             </TabsTrigger>

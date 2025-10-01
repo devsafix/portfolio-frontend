@@ -3,31 +3,36 @@ import { TProject } from "@/types";
 import { Metadata } from "next";
 import ProjectTabs from "@/components/module/Projects/ProjectTabs";
 
-// SEO Metadata for the main projects page
-export const metadata: Metadata = {
-  title: "All Projects | Kawser Ferdous Safi",
-  description:
-    "Explore a collection of my projects, showcasing my skills in full-stack development, Next.js, and modern web technologies.",
-};
+// This function can now generate dynamic metadata based on the tag
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: { tag?: string };
+}): Promise<Metadata> {
+  const tag = searchParams.tag;
+  const title = tag
+    ? `${tag.replace("-", " ")} Projects | Kawser Ferdous Safi`
+    : "All Projects | Kawser Ferdous Safi";
+  const description = `Explore my collection of ${
+    tag ? tag.replace("-", " ") : "web development"
+  } projects.`;
 
-async function getProjects(tag?: string) {
+  return { title, description };
+}
+
+async function getProjects(tag?: string): Promise<TProject[]> {
   let url = `${process.env.NEXT_PUBLIC_BASE_API}/projects`;
-  if (tag) {
+  // Important: only add the query param if a tag exists and is not 'all'
+  if (tag && tag !== "all") {
     url += `?tag=${tag}`;
   }
 
-  console.log(tag);
-
   try {
     const res = await fetch(url, {
-      next: {
-        tags: ["projects"],
-      },
+      next: { tags: ["projects"] },
     });
 
-    if (!res.ok) {
-      throw new Error("Failed to fetch projects");
-    }
+    if (!res.ok) throw new Error("Failed to fetch projects");
 
     const data = await res.json();
     return data?.data as TProject[];

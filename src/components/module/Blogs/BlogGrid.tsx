@@ -47,6 +47,7 @@ export default function BlogGrid({ blogs }: BlogGridProps) {
         <motion.div
           key={blog.id}
           variants={cardVariants as Variants}
+          whileHover={{ y: -6 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
           {/* The entire card is a clickable link for better UX */}

@@ -11,8 +11,8 @@ const menuItems = [
   { name: "Home", href: "/#banner" },
   { name: "About", href: "/#about" },
   { name: "Skills", href: "/#skills" },
-  { name: "Projects", href: "/#projects" },
-  { name: "Blogs", href: "/#blogs" },
+  { name: "Projects", href: "/projects" },
+  { name: "Blogs", href: "/blogs" },
 ];
 
 export const Navbar = () => {
