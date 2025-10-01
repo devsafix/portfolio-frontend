@@ -42,7 +42,7 @@ export default async function RecentBlogs() {
 
             <div className="mt-10 flex items-center justify-center">
               <Button asChild className="px-20 py-5 w-44">
-                <Link href="/all-blogs">
+                <Link href="/blogs">
                   See All Blogs <ArrowRight className="size-4" />
                 </Link>
               </Button>

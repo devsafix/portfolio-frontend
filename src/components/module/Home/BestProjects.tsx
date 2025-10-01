@@ -44,7 +44,7 @@ export default async function BestProjects() {
 
             <div className="mt-10 flex items-center justify-center">
               <Button asChild className="px-20 py-5 w-44">
-                <Link href="/all-projects">
+                <Link href="/projects">
                   See All Projects <ArrowRight className="size-4" />
                 </Link>
               </Button>

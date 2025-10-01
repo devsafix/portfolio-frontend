@@ -34,8 +34,8 @@ const navLinks = [
   { name: "Home", href: "/#banner" },
   { name: "About Me", href: "/#about" },
   { name: "FAQ", href: "/#faq" },
-  { name: "All Projects", href: "/all-projects" },
-  { name: "All Blogs", href: "/all-blogs" },
+  { name: "All Projects", href: "/projects" },
+  { name: "All Blogs", href: "/blogs" },
 ];
 
 const footerVariants: Variants = {
