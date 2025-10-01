@@ -3,15 +3,14 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TProject } from "@/types";
-import ProjectGrid from "./ProjectGrid";
+import AllProjectsGrid from "./AllProjectsGrid";
 
-// Define the tabs
 const projectTabs = [
   { label: "All", value: "all" },
-  { label: "Full Stack", value: "full-stack" },
-  { label: "Next.js", value: "next-js" },
-  { label: "Frontend", value: "frontend" },
-  { label: "Backend", value: "backend" },
+  { label: "Full Stack", value: "Full-Stack" },
+  { label: "Next.js", value: "Next.js" },
+  { label: "Frontend", value: "Frontend" },
+  { label: "Backend", value: "Backend" },
 ];
 
 export default function ProjectTabs({ projects }: { projects: TProject[] }) {
@@ -21,16 +20,16 @@ export default function ProjectTabs({ projects }: { projects: TProject[] }) {
   const activeTag = searchParams.get("tag") || "all";
 
   const handleTabChange = (tag: string) => {
-    const newTag = tag === "all" ? "" : tag;
-    const params = new URLSearchParams(searchParams);
+    const params = new URLSearchParams(searchParams.toString());
 
-    if (newTag) {
-      params.set("tag", newTag);
-    } else {
+    if (tag === "all") {
       params.delete("tag");
+    } else {
+      params.set("tag", tag);
     }
 
-    router.push(`${pathname}?${params.toString()}`);
+    // Use router.replace for a cleaner browser history
+    router.replace(`${pathname}?${params.toString()}`);
   };
 
   return (
@@ -39,7 +38,7 @@ export default function ProjectTabs({ projects }: { projects: TProject[] }) {
       onValueChange={handleTabChange}
       className="w-full"
     >
-      <div className="flex justify-center mb-8">
+      <div className="flex justify-center mb-10">
         <TabsList className="h-auto p-2 bg-card border flex-wrap">
           {projectTabs.map((tab) => (
             <TabsTrigger
@@ -53,8 +52,8 @@ export default function ProjectTabs({ projects }: { projects: TProject[] }) {
         </TabsList>
       </div>
 
-      {/* The ProjectGrid now displays all filtered projects in a 3-col layout */}
-      <ProjectGrid projects={projects} columns={3} />
+      {/* Render the new, dedicated grid for this page */}
+      <AllProjectsGrid projects={projects} />
     </Tabs>
   );
 }

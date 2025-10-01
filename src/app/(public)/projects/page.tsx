@@ -16,6 +16,8 @@ async function getProjects(tag?: string) {
     url += `?tag=${tag}`;
   }
 
+  console.log(tag);
+
   try {
     const res = await fetch(url, {
       next: {
@@ -40,7 +42,7 @@ export default async function AllProjectsPage({
 }: {
   searchParams: { tag?: string };
 }) {
-  const activeTag = searchParams.tag;
+  const activeTag = searchParams?.tag;
   const projects = await getProjects(activeTag);
 
   return (
