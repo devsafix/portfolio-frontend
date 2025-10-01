@@ -135,20 +135,20 @@ export default function HeroSection() {
                     <SwiperSlide className="px-2">
                       <div className="bg-input/70 rounded-(--radius) h-44 max-w-lg border p-9">
                         <div className="mx-auto h-fit w-full">
-                          <SiJavascript className="text-yellow-400 text-4xl md:text-6xl mx-auto" />
+                          <SiTypescript className="text-blue-600 text-4xl md:text-6xl mx-auto" />
                         </div>
                         <p className="mt-6 text-center text-lg font-medium">
-                          The programming language of the Web
+                          Typed JavaScript
                         </p>
                       </div>
                     </SwiperSlide>
                     <SwiperSlide className="px-2">
                       <div className="bg-input/70 rounded-(--radius) h-44 max-w-lg border p-9">
                         <div className="mx-auto h-fit w-full">
-                          <SiTypescript className="text-blue-600 text-4xl md:text-6xl mx-auto" />
+                          <SiJavascript className="text-yellow-400 text-4xl md:text-6xl mx-auto" />
                         </div>
                         <p className="mt-6 text-center text-lg font-medium">
-                          Typed JavaScript
+                          The programming language of the Web
                         </p>
                       </div>
                     </SwiperSlide>
