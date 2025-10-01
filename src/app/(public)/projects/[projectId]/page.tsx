@@ -1,9 +1,9 @@
 export default async function BlogDetailsPage({
   params,
 }: {
-  params: Promise<{ blogId: string }>;
+  params: Promise<{ projectId: string }>;
 }) {
-  const { blogId } = await params;
+  const { projectId } = await params;
 
   return <div className=""></div>;
 }

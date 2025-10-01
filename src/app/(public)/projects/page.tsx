@@ -6,7 +6,9 @@ export const metadata: Metadata = {
 };
 
 const AllProjectsPage = async () => {
-  return <div className=""></div>;
+  return <div className="">
+    
+  </div>;
 };
 
 export default AllProjectsPage;
