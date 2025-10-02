@@ -32,14 +32,14 @@ const AllProjects = async () => {
   const projects = await getAllProjects();
 
   return (
-    <Card className="p-3 bg-card/40">
+    <Card className="md:p-3 bg-card/40">
       <CardHeader>
-        <CardTitle>Manage Projects</CardTitle>
+        <CardTitle className="pt-3">Manage Projects</CardTitle>
         <CardDescription>
           Here you can add, edit, and delete your portfolio projects.
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="pb-2">
         <ProjectsDataTable projects={projects} />
       </CardContent>
     </Card>

@@ -96,7 +96,7 @@ export default function BlogsDataTable({ blogs }: { blogs: TBlog[] }) {
         </Dialog>
       </div>
       <div className="rounded-md border">
-        <Table>
+        <Table className="overflow-x-scroll">
           <TableHeader>
             <TableRow>
               <TableHead>Title</TableHead>
@@ -108,7 +108,7 @@ export default function BlogsDataTable({ blogs }: { blogs: TBlog[] }) {
           <TableBody>
             {blogs.map((blog) => (
               <TableRow key={blog.id}>
-                <TableCell className="font-medium">{blog.title}</TableCell>
+                <TableCell className="font-medium max-w-[200px] truncate md:max-w-full">{blog.title}</TableCell>
                 <TableCell className="hidden md:table-cell text-xs text-muted-foreground truncate">
                   {blog.tags.slice(0, 4).join(", ")}
                 </TableCell>

@@ -116,7 +116,9 @@ export default function ProjectsDataTable({
           <TableBody>
             {projects.map((project) => (
               <TableRow key={project.id}>
-                <TableCell className="font-medium">{project.title}</TableCell>
+                <TableCell className="font-medium max-w-[200px] truncate md:max-w-full">
+                  {project.title}
+                </TableCell>
                 <TableCell className="hidden md:table-cell text-xs text-muted-foreground truncate">
                   {project.technologies.slice(0, 4).join(", ")}
                 </TableCell>

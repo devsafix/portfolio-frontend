@@ -32,14 +32,14 @@ const AllBlogs = async () => {
   const blogs = await getAllBlogs();
 
   return (
-    <Card className="p-3 bg-card/40">
+    <Card className="md:p-3 bg-card/40">
       <CardHeader>
-        <CardTitle>Manage Blogs</CardTitle>
+        <CardTitle className="pt-3">Manage Blogs</CardTitle>
         <CardDescription>
           Here you can create, edit, and delete your blog posts.
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="pb-2">
         <BlogsDataTable blogs={blogs} />
       </CardContent>
     </Card>
