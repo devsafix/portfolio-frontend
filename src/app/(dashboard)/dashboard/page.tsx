@@ -25,9 +25,9 @@ async function getStats(cookie: string | undefined) {
 
 const DashboardHomePage = async () => {
   const cookieStore = await cookies();
-  const token = cookieStore.get("accessToken");
+  const token = cookieStore.get("accessTokenPortfolio");
   const stats = await getStats(
-    token ? `accessToken=${token.value}` : undefined
+    token ? `accessTokenPortfolio=${token.value}` : undefined
   );
 
   return (

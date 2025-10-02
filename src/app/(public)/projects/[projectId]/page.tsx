@@ -13,7 +13,7 @@ type Props = {
 
 // Function to generate dynamic metadata for each project page
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const project = await getProjectDetails(params.projectId);
+  const project = await getProjectDetails(params?.projectId);
   return {
     title: `${project?.title || "Project"} | Kawser Ferdous Safi`,
     description: project?.description,

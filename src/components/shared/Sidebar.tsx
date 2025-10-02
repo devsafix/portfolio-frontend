@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Home, LogOut, Menu, Newspaper, LayoutGrid } from "lucide-react";
 import { logoutAction } from "@/actions/authActions";
 import { FaHome } from "react-icons/fa";
+import { toast } from "sonner";
 
 // Navigation links data
 const navLinks = [
@@ -52,8 +53,17 @@ const DashboardNav = () => (
 );
 
 export default function Sidebar() {
+  const router = useRouter();
+
   const handleLogout = async () => {
-    await logoutAction();
+    const result = await logoutAction();
+    if (result?.success) {
+      toast.success("Logged out successfully!");
+      router.push("/login");
+      router.refresh();
+    } else {
+      toast.error("Failed to logout. Please try again.");
+    }
   };
 
   return (
@@ -84,7 +94,11 @@ export default function Sidebar() {
           <SheetContent side="left" className="flex flex-col pt-10">
             <DashboardNav />
             <div className="mt-auto">
-              <Button size="sm" className="w-full" onClick={handleLogout}>
+              <Button
+                size="sm"
+                className="w-full cursor-pointer"
+                onClick={handleLogout}
+              >
                 <LogOut className="size-4" /> Logout
               </Button>
             </div>

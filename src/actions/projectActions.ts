@@ -36,14 +36,14 @@ export async function createProjectAction(
   values: z.infer<typeof projectSchema>
 ) {
   const cookieStore = await cookies();
-  const token = cookieStore.get("accessToken");
+  const token = cookieStore.get("accessTokenPortfolio");
 
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/projects`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Cookie: `accessToken=${token?.value}`,
+        Cookie: `accessTokenPortfolio=${token?.value}`,
       },
       body: JSON.stringify(values),
     });
@@ -55,7 +55,6 @@ export async function createProjectAction(
         message: data.message || "Failed to create project.",
       };
     }
-
     revalidateTag("projects");
     return {
       success: true,
@@ -73,7 +72,7 @@ export async function updateProjectAction(
   values: z.infer<typeof projectSchema>
 ) {
   const cookieStore = await cookies();
-  const token = cookieStore.get("accessToken");
+  const token = cookieStore.get("accessTokenPortfolio");
 
   try {
     const res = await fetch(
@@ -82,7 +81,7 @@ export async function updateProjectAction(
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
-          Cookie: `accessToken=${token?.value}`,
+          Cookie: `accessTokenPortfolio=${token?.value}`,
         },
         body: JSON.stringify(values),
       }
@@ -95,7 +94,6 @@ export async function updateProjectAction(
         message: data.message || "Failed to update project.",
       };
     }
-
     revalidateTag("projects");
     return { success: true, message: "Project updated successfully!" };
   } catch (error) {
@@ -106,13 +104,13 @@ export async function updateProjectAction(
 // DELETE action
 export async function deleteProjectAction(id: string) {
   const cookieStore = await cookies();
-  const token = cookieStore.get("accessToken");
+  const token = cookieStore.get("accessTokenPortfolio");
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_API}/projects/${id}`,
       {
         method: "DELETE",
-        headers: { Cookie: `accessToken=${token?.value}` },
+        headers: { Cookie: `accessTokenPortfolio=${token?.value}` },
       }
     );
 
@@ -123,7 +121,6 @@ export async function deleteProjectAction(id: string) {
         message: data.message || "Failed to delete project.",
       };
     }
-
     revalidateTag("projects");
     return { success: true, message: "Project deleted successfully!" };
   } catch (error) {

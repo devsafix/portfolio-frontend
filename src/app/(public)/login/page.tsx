@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 import {
   Card,
   CardContent,
@@ -19,11 +20,11 @@ import { Label } from "@/components/ui/label";
 import { Loader2, Lock } from "lucide-react";
 import { loginAction } from "@/actions/authActions";
 import { useTransition } from "react";
-import { redirect } from "next/navigation";
 import { loginSchema } from "@/types";
 
 const LoginPage = () => {
   const [isPending, startTransition] = useTransition();
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
@@ -36,12 +37,13 @@ const LoginPage = () => {
   const onSubmit = (values: z.infer<typeof loginSchema>) => {
     startTransition(async () => {
       const result = await loginAction(values);
-      if (result?.success === true) {
-        toast.success(result.message);
-        redirect("/dashboard");
-      }
+
       if (result?.success === false) {
         toast.error(result.message);
+      } else if (result?.success === true) {
+        toast.success("Login successful!");
+        router.push("/dashboard");
+        router.refresh();
       }
     });
   };

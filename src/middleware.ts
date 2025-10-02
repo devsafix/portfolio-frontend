@@ -2,8 +2,8 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
-  // Check if the 'accessToken' cookie exists
-  const token = request.cookies.get("accessToken");
+  // Check if the 'accessTokenPortfolio' cookie exists
+  const token = request.cookies.get("accessTokenPortfolio");
 
   // If the user is trying to access the login page but is already logged in, redirect to dashboard
   if (token && request.nextUrl.pathname.startsWith("/login")) {

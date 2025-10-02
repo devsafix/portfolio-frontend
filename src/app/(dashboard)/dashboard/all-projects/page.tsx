@@ -13,10 +13,10 @@ import {
 // Fetcher function to get all projects for the dashboard
 async function getAllProjects() {
   const cookieStore = await cookies();
-  const token = cookieStore.get("accessToken");
+  const token = cookieStore.get("accessTokenPortfolio");
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/projects`, {
-      headers: { Cookie: `accessToken=${token?.value}` },
+      headers: { Cookie: `accessTokenPortfolio=${token?.value}` },
       cache: "no-store", // Ensure fresh data on every visit to the dashboard
       next: { tags: ["projects"] },
     });
@@ -32,7 +32,7 @@ const AllProjects = async () => {
   const projects = await getAllProjects();
 
   return (
-    <Card>
+    <Card className="p-3 bg-card/40">
       <CardHeader>
         <CardTitle>Manage Projects</CardTitle>
         <CardDescription>
