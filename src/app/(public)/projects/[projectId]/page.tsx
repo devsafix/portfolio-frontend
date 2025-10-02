@@ -24,7 +24,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 async function getProjectDetails(id: string): Promise<TProject | null> {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_API}/projects/${id}`
+      `${process.env.NEXT_PUBLIC_BASE_API}/projects/${id}`,
+      {
+        next: { revalidate: 3600 },
+      }
     );
     const data = await res.json();
     return data.data;

@@ -38,7 +38,7 @@ export default async function RecentBlogs() {
       <div className="mt-10 max-w-6xl mx-auto px-4">
         {blogs && blogs?.length > 0 ? (
           <>
-            <BlogGrid blogs={blogs.slice(0, 6)} />
+            <BlogGrid blogs={blogs.slice(0, 3)} />
 
             <div className="mt-10 flex items-center justify-center">
               <Button asChild className="px-20 py-5 w-44">
