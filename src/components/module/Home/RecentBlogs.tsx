@@ -1,6 +1,6 @@
 import ComponentHeader from "@/components/shared/ComponentHeader";
 import { TBlog } from "@/types";
-import BlogGrid from "../Blogs/BlogGrid"; // Corrected path assuming this structure
+import BlogGrid from "../Blogs/BlogGrid";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -8,10 +8,7 @@ import { ArrowRight } from "lucide-react";
 async function getRecentBlogs() {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/blogs`, {
-      next: {
-        // Tagging this fetch for on-demand revalidation via server actions
-        tags: ["blogs"],
-      },
+      cache: "no-store",
     });
 
     if (!res.ok) {

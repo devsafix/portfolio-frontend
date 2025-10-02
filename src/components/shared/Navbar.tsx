@@ -6,6 +6,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import React from "react";
 import { cn } from "@/lib/utils";
+import { checkAuthStatus } from "@/actions/authActions";
 
 const menuItems = [
   { name: "Home", href: "/#banner" },
@@ -19,13 +20,33 @@ export const Navbar = () => {
   const [menuState, setMenuState] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
 
+  // --- NEW: State to track login status ---
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(true);
+
   React.useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
+
+    // Check auth status when the component mounts
+    const checkStatus = async () => {
+      try {
+        const status = await checkAuthStatus();
+        setIsLoggedIn(status);
+      } catch (error) {
+        console.error("Failed to check auth status:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    checkStatus();
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   return (
     <header>
       <nav
@@ -86,25 +107,52 @@ export const Navbar = () => {
                 </ul>
               </div>
               <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
+                {/* --- NEW: Conditional Login/Dashboard Button --- */}
+                {isLoading ? (
+                  // Show a disabled button while checking status to prevent flicker
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    disabled
+                    className={cn(isScrolled && "lg:hidden", "w-24")}
+                  ></Button>
+                ) : isLoggedIn ? (
+                  // Show Dashboard button if logged in
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="sm"
+                    className={cn(isScrolled && "lg:hidden")}
+                  >
+                    <Link href="/dashboard">
+                      <span>Dashboard</span>
+                    </Link>
+                  </Button>
+                ) : (
+                  // Show Login button if not logged in
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="sm"
+                    className={cn(isScrolled && "lg:hidden")}
+                  >
+                    <Link href="/login">
+                      <span>Login</span>
+                    </Link>
+                  </Button>
+                )}
+
                 <Button
                   asChild
-                  variant="outline"
                   size="sm"
                   className={cn(isScrolled && "lg:hidden")}
                 >
-                  <Link href="/login">
-                    <span>Login</span>
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  size="sm"
-                  className={cn(isScrolled && "lg:hidden")}
-                >
-                  <Link href="#contact">
+                  <Link href="/#contact">
+                    {" "}
                     <span>Contact Me</span>
                   </Link>
                 </Button>
+
                 <Button
                   asChild
                   size="sm"
