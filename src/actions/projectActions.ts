@@ -103,4 +103,30 @@ export async function updateProjectAction(
   }
 }
 
+// DELETE action
+export async function deleteProjectAction(id: string) {
+  const cookieStore = await cookies();
+  const token = cookieStore.get("accessToken");
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_API}/projects/${id}`,
+      {
+        method: "DELETE",
+        headers: { Cookie: `accessToken=${token?.value}` },
+      }
+    );
 
+    const data = await res.json();
+    if (!res.ok || !data.success) {
+      return {
+        success: false,
+        message: data.message || "Failed to delete project.",
+      };
+    }
+
+    revalidateTag("projects");
+    return { success: true, message: "Project deleted successfully!" };
+  } catch (error) {
+    return { success: false, message: "Something went wrong." };
+  }
+}
