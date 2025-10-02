@@ -43,7 +43,7 @@ export async function generateStaticParams() {
 }
 
 export default async function ProjectDetailsPage({ params }: Props) {
-  const project = await getProjectDetails(params.projectId);
+  const project = await getProjectDetails(params?.projectId);
 
   if (!project) {
     return (

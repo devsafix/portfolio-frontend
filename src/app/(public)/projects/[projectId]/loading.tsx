@@ -2,7 +2,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export default function DetailsProjectLoadingPage() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12 md:py-20 animate-pulse">
+    <div className="max-w-4xl mx-auto px-4 py-20 md:py-28 animate-pulse">
       <div className="space-y-8">
         {/* Title Skeleton */}
         <Skeleton className="h-12 w-3/4 mx-auto" />
