@@ -82,7 +82,7 @@ export default function BlogsDataTable({ blogs }: { blogs: TBlog[] }) {
         >
           <DialogTrigger asChild>
             <Button onClick={() => setIsDialogOpen(true)}>
-              <PlusCircle className="mr-2 size-4" /> Add New Blog
+              <PlusCircle className="size-4" /> Add New Blog
             </Button>
           </DialogTrigger>
           <DialogContent className="sm:max-w-[800px] max-h-[90vh] overflow-y-auto">
@@ -126,12 +126,12 @@ export default function BlogsDataTable({ blogs }: { blogs: TBlog[] }) {
                     <DropdownMenuContent align="end">
                       <DropdownMenuItem asChild>
                         <Link href={`/blogs/${blog.slug}`} target="_blank">
-                          <ExternalLink className="mr-2 size-4" />
+                          <ExternalLink className="size-4" />
                           View Post
                         </Link>
                       </DropdownMenuItem>
                       <DropdownMenuItem onClick={() => handleEdit(blog)}>
-                        <Edit className="mr-2 size-4" />
+                        <Edit className="size-4" />
                         Edit
                       </DropdownMenuItem>
 
@@ -141,7 +141,7 @@ export default function BlogsDataTable({ blogs }: { blogs: TBlog[] }) {
                             onSelect={(e) => e.preventDefault()}
                             className="text-destructive"
                           >
-                            <Trash className="mr-2 size-4" />
+                            <Trash className="size-4" />
                             Delete
                           </DropdownMenuItem>
                         </AlertDialogTrigger>

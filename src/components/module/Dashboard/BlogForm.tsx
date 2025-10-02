@@ -24,10 +24,10 @@ import { useTransition } from "react";
 const blogSchema = z.object({
   title: z.string().min(1, "Title is required"),
   content: z.string().min(1, "Markdown content is required"),
-  thumbnail: z.string().url("Must be a valid URL").optional().or(z.literal("")),
+  thumbnail: z.string().url("Must be a valid URL").or(z.literal("")),
   tags: z.string().min(1, "Add at least one tag"),
-  metaTitle: z.string().optional(),
-  metaDescription: z.string().optional(),
+  metaTitle: z.string(),
+  metaDescription: z.string(),
 });
 
 type BlogFormProps = {
@@ -94,7 +94,7 @@ export default function BlogForm({ blog, onClose }: BlogFormProps) {
           name="thumbnail"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Thumbnail URL (Optional)</FormLabel>
+              <FormLabel>Thumbnail URL</FormLabel>
               <FormControl>
                 <Input placeholder="https://example.com/image.png" {...field} />
               </FormControl>
@@ -137,7 +137,7 @@ export default function BlogForm({ blog, onClose }: BlogFormProps) {
           name="metaTitle"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Meta Title (Optional)</FormLabel>
+              <FormLabel>Meta Title</FormLabel>
               <FormControl>
                 <Input placeholder="SEO Title for the blog" {...field} />
               </FormControl>
@@ -150,7 +150,7 @@ export default function BlogForm({ blog, onClose }: BlogFormProps) {
           name="metaDescription"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Meta Description (Optional)</FormLabel>
+              <FormLabel>Meta Description</FormLabel>
               <FormControl>
                 <Textarea
                   placeholder="SEO Description for the blog"
