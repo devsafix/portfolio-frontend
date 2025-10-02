@@ -59,7 +59,7 @@ export default function Sidebar() {
   return (
     <>
       {/* Desktop Sidebar */}
-      <aside className="hidden border-r bg-card md:block">
+      <aside className="hidden border-r bg-card/40 md:block">
         <div className="flex h-full max-h-screen flex-col gap-10 pt-10">
           <div className="flex-1">
             <DashboardNav />
