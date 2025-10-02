@@ -67,4 +67,40 @@ export async function createProjectAction(
   }
 }
 
+// UPDATE action
+export async function updateProjectAction(
+  id: string,
+  values: z.infer<typeof projectSchema>
+) {
+  const cookieStore = await cookies();
+  const token = cookieStore.get("accessToken");
+
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_API}/projects/${id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Cookie: `accessToken=${token?.value}`,
+        },
+        body: JSON.stringify(values),
+      }
+    );
+
+    const data = await res.json();
+    if (!res.ok || !data.success) {
+      return {
+        success: false,
+        message: data.message || "Failed to update project.",
+      };
+    }
+
+    revalidateTag("projects");
+    return { success: true, message: "Project updated successfully!" };
+  } catch (error) {
+    return { success: false, message: "Something went wrong." };
+  }
+}
+
 
