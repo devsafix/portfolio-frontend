@@ -33,3 +33,16 @@ export const loginSchema = z.object({
   email: z.string().email({ message: "Invalid email address" }),
   password: z.string().min(1, { message: "Password is required" }),
 });
+
+// Zod schema for blog validation
+export const blogSchema = z.object({
+  title: z.string().min(1, "Title is required"),
+  content: z.string().min(1, "Content is required"),
+  thumbnail: z.string().url("Must be a valid URL").optional().or(z.literal("")),
+  tags: z
+    .string()
+    .min(1, "Add at least one tag")
+    .transform((val) => val.split(",").map((tag) => tag.trim())),
+  metaTitle: z.string().optional(),
+  metaDescription: z.string().optional(),
+});
