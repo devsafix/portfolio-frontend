@@ -1,5 +1,5 @@
 const DashboardHomePage = async () => {
-  return <div></div>;
+  return <div>DashboardHomePage</div>;
 };
 
 export default DashboardHomePage;
