@@ -61,4 +61,22 @@ export async function updateBlogAction(
   }
 }
 
+// DELETE action
+export async function deleteBlogAction(id: string) {
+  const cookieStore = await cookies();
+  const token = cookieStore.get("accessTokenPortfolio");
 
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/blogs/${id}`, {
+      method: "DELETE",
+      headers: { Cookie: `accessTokenPortfolio=${token?.value}` },
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.message || "Failed to delete blog.");
+
+    revalidateTag("blogs");
+    return { success: true, message: "Blog deleted successfully!" };
+  } catch (error: any) {
+    return { success: false, message: error.message };
+  }
+}
