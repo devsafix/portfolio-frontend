@@ -1,6 +1,7 @@
 "use server";
 
 import { loginSchema } from "@/types";
+import { redirect } from "next/navigation";
 import { z } from "zod";
 
 // The server action to handle the login process
@@ -28,4 +29,11 @@ export async function loginAction(values: z.infer<typeof loginSchema>) {
       message: "Something went wrong. Please try again.",
     };
   }
+}
+
+export async function logoutAction() {
+  await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/auth/logout`, {
+    method: "POST",
+  });
+  redirect("/login");
 }
