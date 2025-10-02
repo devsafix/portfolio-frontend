@@ -90,7 +90,6 @@ export default function Sidebar() {
             </div>
           </SheetContent>
         </Sheet>
-        {/* You can add a page title or other header content here for mobile */}
       </header>
     </>
   );
