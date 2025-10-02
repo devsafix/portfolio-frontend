@@ -1,13 +1,7 @@
 "use server";
 
+import { loginSchema } from "@/types";
 import { z } from "zod";
-import { redirect } from "next/navigation";
-
-// Define the validation schema for the login form
-export const loginSchema = z.object({
-  email: z.string().email({ message: "Invalid email address" }),
-  password: z.string().min(1, { message: "Password is required" }),
-});
 
 // The server action to handle the login process
 export async function loginAction(values: z.infer<typeof loginSchema>) {
@@ -24,6 +18,8 @@ export async function loginAction(values: z.infer<typeof loginSchema>) {
 
     if (!res.ok || !data.success) {
       return { success: false, message: data.message || "Invalid credentials" };
+    } else {
+      return { success: true, message: data.message || "Login Successfully" };
     }
   } catch (error) {
     console.error("Login Error:", error);
@@ -32,7 +28,4 @@ export async function loginAction(values: z.infer<typeof loginSchema>) {
       message: "Something went wrong. Please try again.",
     };
   }
-
-  // If login is successful, redirect to the dashboard
-  redirect("/dashboard");
 }

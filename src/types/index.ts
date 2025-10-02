@@ -1,3 +1,5 @@
+import z from "zod";
+
 export type TProject = {
   id: string;
   title: string;
@@ -25,3 +27,9 @@ export type TBlog = {
   createdAt: string;
   updatedAt: string;
 };
+
+// Validation schema for the login form
+export const loginSchema = z.object({
+  email: z.string().email({ message: "Invalid email address" }),
+  password: z.string().min(1, { message: "Password is required" }),
+});
