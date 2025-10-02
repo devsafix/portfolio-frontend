@@ -1,6 +1,7 @@
 "use server";
 
 import { loginSchema } from "@/types";
+import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 
@@ -36,4 +37,10 @@ export async function logoutAction() {
     method: "POST",
   });
   redirect("/login");
+}
+
+export async function checkAuthStatus() {
+  const cookieStore = await cookies();
+  const token = cookieStore.get("accessToken");
+  return !!token;
 }
