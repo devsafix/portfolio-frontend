@@ -125,7 +125,7 @@ export default function BlogsDataTable({ blogs }: { blogs: TBlog[] }) {
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
                       <DropdownMenuItem asChild>
-                        <Link href={`/blogs/${blog.slug}`} target="_blank">
+                        <Link href={`/blogs/${blog.slug}`}>
                           <ExternalLink className="size-4" />
                           View Post
                         </Link>
