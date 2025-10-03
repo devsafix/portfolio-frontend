@@ -8,7 +8,7 @@ export type TProject = {
   tags: string[];
   thumbnail: string;
   liveSite: string;
-  githubClient?: string;
+  githubClient?: string | null;
   githubBackend?: string | null;
   technologies: string[];
   createdAt: string;

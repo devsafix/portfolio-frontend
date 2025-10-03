@@ -100,15 +100,17 @@ export default function ProjectGrid({
                   <Globe className="size-4" /> Live
                 </Link>
               </Button>
-              <Button asChild variant="outline" className="w-full">
-                <Link
-                  href={project.githubClient}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Github className="size-4" /> Client
-                </Link>
-              </Button>
+              {project.githubClient && (
+                <Button asChild variant="outline" className="w-full">
+                  <Link
+                    href={project.githubClient}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Github className="size-4" /> Client
+                  </Link>
+                </Button>
+              )}
               {project.githubBackend && (
                 <Button asChild variant="outline" className="w-full">
                   <Link
