@@ -11,7 +11,7 @@ const projectSchema = z.object({
   description: z.string().min(1, "Description is required"),
   thumbnail: z.string().url("Must be a valid URL"),
   liveSite: z.string().url("Must be a valid URL"),
-  githubClient: z.string().url("Must be a valid URL"),
+  githubClient: z.string().url("Must be a valid URL").optional(),
   githubBackend: z
     .string()
     .url("Must be a valid URL")
