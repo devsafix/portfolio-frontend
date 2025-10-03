@@ -79,7 +79,7 @@ export default function Footer() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                className="text-sm text-white/70 transition-colors hover:text-primary"
               >
                 {link.name}
               </Link>
@@ -95,7 +95,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.name}
-                className="p-2 rounded-full text-muted-foreground transition-colors hover:bg-accent hover:text-primary"
+                className="p-2 rounded-full text-white/70 transition-colors hover:bg-accent hover:text-primary"
               >
                 {social.icon}
               </Link>

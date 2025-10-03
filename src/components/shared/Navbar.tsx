@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Logo } from "@/assets/icon/logo";
-import { Menu, X } from "lucide-react";
+import { Github, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import React from "react";
 import { cn } from "@/lib/utils";
@@ -152,6 +152,21 @@ export const Navbar = () => {
                     <span>Contact Me</span>
                   </Link>
                 </Button>
+
+                <Link
+                  href={"https://github.com/devsafix"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={"GitHub"}
+                  className={cn(
+                    isScrolled
+                      ? "inline-flex lg:inline-flex"
+                      : "inline-flex lg:hidden",
+                    "p-2 rounded-full text-white/70 transition-colors hover:bg-accent hover:text-primary"
+                  )}
+                >
+                  <Github className="size-5" />
+                </Link>
 
                 <Button
                   asChild

@@ -3,6 +3,7 @@
 import ComponentHeader from "@/components/shared/ComponentHeader";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { Facebook, Github, Linkedin, Twitter } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -42,6 +43,30 @@ const itemVariants = {
   },
 };
 
+// Social links data
+const socialLinks = [
+  {
+    name: "GitHub",
+    icon: <Github className="size-5" />,
+    url: "https://github.com/devsafix",
+  },
+  {
+    name: "LinkedIn",
+    icon: <Linkedin className="size-5" />,
+    url: "https://linkedin.com/in/devsafix",
+  },
+  {
+    name: "Twitter",
+    icon: <Twitter className="size-5" />,
+    url: "https://twitter.com/devsafix",
+  },
+  {
+    name: "Facebook",
+    icon: <Facebook className="size-5" />,
+    url: "https://facebook.com/devsafix",
+  },
+];
+
 export default function About() {
   return (
     <div className="py-10" id="about">
@@ -74,9 +99,24 @@ export default function About() {
             <p className="text-md text-primary">Full Stack Developer</p>
             <p className="text-sm text-white/60">Dhaka, Bangladesh</p>
           </div>
+          {/* Social Icons */}
+          <div className="flex items-center gap-4">
+            {socialLinks.map((social) => (
+              <Link
+                key={social.name}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.name}
+                className="p-2 rounded-full text-white/70 transition-colors hover:bg-accent hover:text-primary"
+              >
+                {social.icon}
+              </Link>
+            ))}
+          </div>
 
           <Link href={"#contact"} className="w-full">
-            <Button className="mt-4 w-full">Get In Touch</Button>
+            <Button className="mt- w-full">Get In Touch</Button>
           </Link>
         </motion.div>
 

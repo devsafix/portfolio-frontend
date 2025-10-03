@@ -113,7 +113,7 @@ export default function Contact() {
                 {contactDetails.map((detail, index) => (
                   <div key={index} className="flex items-center gap-4">
                     <div className="flex-shrink-0 text-2xl">{detail.icon}</div>
-                    <p className="text-lg">{detail.info}</p>
+                    <p>{detail.info}</p>
                   </div>
                 ))}
               </div>
