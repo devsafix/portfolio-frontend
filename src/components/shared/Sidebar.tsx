@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Home, LogOut, Menu, Newspaper, LayoutGrid } from "lucide-react";
+import { Home, LogOut, Menu, Newspaper, LayoutGrid, User } from "lucide-react";
 import { logoutAction } from "@/actions/authActions";
 import { FaHome } from "react-icons/fa";
 import { toast } from "sonner";
@@ -13,6 +13,11 @@ import { toast } from "sonner";
 const navLinks = [
   { href: "/", label: "Home", icon: <FaHome className="size-5" /> },
   { href: "/dashboard", label: "Dashboard", icon: <Home className="size-5" /> },
+  {
+    href: "/dashboard/about-info",
+    label: "About Information",
+    icon: <User className="size-5" />,
+  },
   {
     href: "/dashboard/all-projects",
     label: "Manage Projects",

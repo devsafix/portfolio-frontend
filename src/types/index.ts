@@ -57,3 +57,12 @@ export type TAbout = {
   createdAt: string;
   updatedAt: string;
 };
+
+// Zod schema for validation
+export const aboutSchema = z.object({
+  heroText: z.string().min(1, "Hero text cannot be empty."),
+  careerSummary: z.string().min(1, "Career summary cannot be empty."),
+  interestText: z.string().min(1, "Interest text cannot be empty."),
+  goalText: z.string().min(1, "Goal text cannot be empty."),
+  resumeLink: z.string().url("Must be a valid URL."),
+});
