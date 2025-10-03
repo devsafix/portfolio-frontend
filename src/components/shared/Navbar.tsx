@@ -162,7 +162,7 @@ export const Navbar = () => {
                     isScrolled
                       ? "inline-flex lg:inline-flex"
                       : "inline-flex lg:hidden",
-                    "p-2 rounded-full text-white/70 transition-colors hover:bg-accent hover:text-primary"
+                    "p-2 rounded-full text-white/70 transition-colors hover:bg-accent hover:text-primary hidden"
                   )}
                 >
                   <Github className="size-5" />

@@ -8,7 +8,9 @@ import { ArrowRight } from "lucide-react";
 async function getRecentBlogs() {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/blogs`, {
-      cache: "no-store",
+      next: {
+        tags: ["blogs"],
+      },
     });
 
     if (!res.ok) {

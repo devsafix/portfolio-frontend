@@ -9,7 +9,11 @@ async function getBestProjects() {
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_API}/projects?tag=top`,
-      { cache: "no-store" }
+      {
+        next: {
+          tags: ["projects"],
+        },
+      }
     );
 
     if (!res.ok) {
