@@ -1,4 +1,4 @@
-import About from "@/components/module/Home/About";
+import AboutSection from "@/components/module/Home/AboutSection";
 import BestProjects from "@/components/module/Home/BestProjects";
 import Contact from "@/components/module/Home/Contact";
 import Faq from "@/components/module/Home/Faq";
@@ -10,7 +10,7 @@ export default async function HomePage() {
   return (
     <div>
       <HeroSection />
-      <About />
+      <AboutSection />
       <Skills />
       <BestProjects />
       <RecentBlogs />

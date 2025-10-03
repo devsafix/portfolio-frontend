@@ -2,23 +2,11 @@
 
 import ComponentHeader from "@/components/shared/ComponentHeader";
 import { Button } from "@/components/ui/button";
+import { TAbout } from "@/types";
 import { motion } from "framer-motion";
 import { Facebook, Github, Linkedin, Twitter } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-
-// Data for the timeline points on the right side
-const journeyPoints = [
-  {
-    text: "As a passionate and growth-oriented full-stack developer, I specialize in building dynamic, scalable web applications using modern JavaScript technologies. Currently enrolled in the 'Next Level Full Stack' course, I'm sharpening my skills with a strong emphasis on backend development, cloud infrastructure, DevOps, and AI automation.",
-  },
-  {
-    text: "I love blending technology with intelligence. While I have hands-on experience building robust RESTful applications using Node.js, Express, and MongoDB, I'm now diving deeper into PostgreSQL, GraphQL, and cloud-native architectures. I'm also actively learning Data Structures & Algorithms (DSA) with Java to strengthen my problem-solving foundation.",
-  },
-  {
-    text: "My goal is to become an expert backend engineer with deep knowledge in DevOps, cloud platforms, and AI-driven workflows delivering fast, scalable, and secure solutions. Whether it's setting up CI/CD pipelines, managing containerized deployments, or automating processes with AI and no-code tools, I thrive in environments where I can blend performance with intelligence.",
-  },
-];
 
 // Animation variants for Framer Motion
 const containerVariants = {
@@ -67,7 +55,14 @@ const socialLinks = [
   },
 ];
 
-export default function About() {
+export default function About({ aboutData }: { aboutData: TAbout | null }) {
+  // Use fetched data with sensible fallbacks
+  const journeyPoints = [
+    { text: aboutData?.careerSummary || "Loading career summary..." },
+    { text: aboutData?.interestText || "Loading interests..." },
+    { text: aboutData?.goalText || "Loading professional goals..." },
+  ];
+
   return (
     <div className="py-10" id="about">
       <ComponentHeader
