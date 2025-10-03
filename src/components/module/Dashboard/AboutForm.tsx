@@ -71,9 +71,9 @@ export default function AboutForm({ aboutData }: { aboutData: TAbout | null }) {
     >
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
-          <Card>
+          <Card className="bg-card/40 md:p-3">
             <CardHeader>
-              <CardTitle>Manage Your Story</CardTitle>
+              <CardTitle className="pt-3">Manage Your Story</CardTitle>
               <CardDescription>
                 Update the text that appears on your public portfolio&apos;s
                 hero and about sections.
