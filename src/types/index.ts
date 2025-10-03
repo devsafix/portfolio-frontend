@@ -46,3 +46,14 @@ export const blogSchema = z.object({
   metaTitle: z.string(),
   metaDescription: z.string(),
 });
+
+export type TAbout = {
+  id: "singleton";
+  heroText: string;
+  careerSummary: string;
+  interestText: string;
+  goalText: string;
+  resumeLink: string;
+  createdAt: string;
+  updatedAt: string;
+};

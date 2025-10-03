@@ -29,6 +29,7 @@ import {
   SiRender,
   SiRailway,
   SiSupabase,
+  SiNetlify,
 } from "react-icons/si";
 import { TbApi, TbBrandOauth } from "react-icons/tb";
 import { FaGitAlt } from "react-icons/fa";
@@ -175,20 +176,21 @@ const skillsData = [
         icon: <SiDocker className="text-blue-500" />,
         description: "Containerization",
       },
-      { name: "GitHub", icon: <SiGithub />, description: "Version control" },
-      {
-        name: "CI/CD",
-        icon: <FaGitAlt className="text-orange-500" />,
-        description: "Automation",
-      },
       {
         name: "AWS",
         icon: <DiAws className="text-orange-400" />,
         description: "Cloud provider",
       },
       { name: "Vercel", icon: <SiVercel />, description: "Cloud platform" },
+      { name: "GitHub", icon: <SiGithub />, description: "Version control" },
+      {
+        name: "CI/CD",
+        icon: <FaGitAlt className="text-orange-500" />,
+        description: "Automation",
+      },
       { name: "Render", icon: <SiRender />, description: "Cloud platform" },
       { name: "Railway", icon: <SiRailway />, description: "Cloud platform" },
+      { name: "Netlify", icon: <SiNetlify />, description: "Cloud platform" },
     ],
   },
 ];
@@ -199,7 +201,7 @@ const cardVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      delay: i * 0.05,
+      delay: i * 0.1,
     },
   }),
 };
