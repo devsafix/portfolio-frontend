@@ -29,6 +29,7 @@ import {
 } from "react-icons/si";
 import { TbApi } from "react-icons/tb";
 import { DiAws } from "react-icons/di";
+import { TAbout } from "@/types";
 
 const transitionVariants = {
   item: {
@@ -50,7 +51,16 @@ const transitionVariants = {
   },
 };
 
-export default function HeroSection() {
+export default function Hero({ aboutData }: { aboutData: TAbout | null }) {
+  // Use the fetched data with fallbacks to your original static text
+  const heroText =
+    aboutData?.heroText ||
+    "A highly driven full-stack developer with expertise in building scalable web applications, backend systems, and cloud-based solutions. Passionate about integrating AI automation and modern DevOps practices to deliver high-performance digital products.";
+
+  const resumeLink =
+    aboutData?.resumeLink ||
+    "https://docs.google.com/document/d/1pHPCafL-0FDBjeluJvTy2kJFhm_TUxpjDdMnfNPoxuc/edit?tab=t.0";
+
   return (
     <>
       <main className="overflow-hidden [--color-primary-foreground:var(--color-white)] [--color-primary:var(--color-green-600)]">
@@ -73,10 +83,7 @@ export default function HeroSection() {
                 as="p"
                 className="mx-auto mt-6 max-w-2xl text-pretty text-md"
               >
-                A highly driven full-stack developer with expertise in building
-                scalable web applications, backend systems, and cloud-based
-                solutions. Passionate about integrating AI automation and modern
-                DevOps practices to deliver high-performance digital products.
+                {heroText}
               </TextEffect>
 
               <AnimatedGroup
@@ -98,12 +105,7 @@ export default function HeroSection() {
                     asChild
                     className="rounded-(--radius) py-5 px-8 cursor-pointer"
                   >
-                    <Link
-                      href={
-                        "https://docs.google.com/document/d/1pHPCafL-0FDBjeluJvTy2kJFhm_TUxpjDdMnfNPoxuc/edit?tab=t.0"
-                      }
-                      target="_blank"
-                    >
+                    <Link href={resumeLink} target="_blank">
                       <span className="text-[14px] font-medium tracking-wide">
                         View Resume
                       </span>
