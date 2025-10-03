@@ -26,7 +26,7 @@ async function getProjectDetails(id: string): Promise<TProject | null> {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_API}/projects/${id}`,
       {
-        next: { revalidate: 3600 },
+        next: { revalidate: 3600, tags: ["projects"] },
       }
     );
     const data = await res.json();
@@ -113,15 +113,17 @@ export default async function ProjectDetailsPage({ params }: Props) {
               <Globe className="size-4" /> Live Demo
             </Link>
           </Button>
-          <Button asChild variant="secondary">
-            <Link
-              href={project.githubClient}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Github className="size-4" /> Client Code
-            </Link>
-          </Button>
+          {project.githubClient && (
+            <Button asChild variant="secondary">
+              <Link
+                href={project.githubClient}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github className="size-4" /> Client Code
+              </Link>
+            </Button>
+          )}
           {project.githubBackend && (
             <Button asChild variant="secondary">
               <Link

@@ -34,7 +34,7 @@ async function getBlogDetails(slug: string): Promise<TBlog | null> {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_API}/blogs/${slug}`,
       {
-        next: { revalidate: 3600 },
+        next: { revalidate: 3600, tags: ["blogs"] },
       }
     );
     const data = await res.json();
